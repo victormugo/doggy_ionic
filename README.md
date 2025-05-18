@@ -8,5 +8,5 @@ Doggy App to show dog list developed using IONIC Capacitor
 First tab that shows breeds list
 ![alt text](image-1.png)
 
-Second tab that shows random breeds
+Second tab that shows random breeds\n
 ![alt text](image.png)
