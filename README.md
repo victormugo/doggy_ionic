@@ -2,6 +2,9 @@
 
 ## info App
 Doggy App to show dog list developed using IONIC Capacitor
+- Angular 19
+- Ionic 7.0.0
+- Node: 18.20.4
 
 ## diagram in excalidraw
 
