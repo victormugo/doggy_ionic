@@ -1,31 +1,26 @@
-🐕 Doggy Ionic
+# 🐕 Doggy Ionic
 
 Una aplicación móvil para explorar diferentes razas de perros, desarrollada con Ionic y Angular.
 
-📱 Información de la App
+## 📱 Información de la App
 
 Doggy App es una aplicación que permite visualizar listas de razas de perros y explorar razas aleatorias, desarrollada usando IONIC Capacitor.
 
-🛠️ Tecnologías
+### 🛠️ Tecnologías
+- **Angular**: 19
+- **Ionic**: 7.0.0
+- **Node.js**: 18.20.4
+- **Capacitor**: Para funcionalidad nativa
 
-Angular: 19
+## 🚀 Setup del Proyecto
 
-Ionic: 7.0.0
+### Prerrequisitos
+- Node.js 18.20.4 o superior
+- npm o yarn
+- Ionic CLI
 
-Node.js: 18.20.4
-
-Capacitor: Para funcionalidad nativa
-
-🚀 Setup del Proyecto
-Prerrequisitos
-
-Node.js 18.20.4 o superior
-
-npm o yarn
-
-Ionic CLI
-
-Instalación
+### Instalación
+```bash
 # Clonar el repositorio
 git clone <repository-url>
 cd doggy_ionic
@@ -38,8 +33,10 @@ npm install -g @ionic/cli
 
 # Ejecutar en modo desarrollo
 ionic serve
+```
 
-📱 Ejecutar en dispositivos
+### 📱 Ejecutar en dispositivos
+```bash
 # Para iOS
 ionic capacitor add ios
 ionic capacitor run ios
@@ -47,9 +44,12 @@ ionic capacitor run ios
 # Para Android
 ionic capacitor add android
 ionic capacitor run android
+```
 
-🔧 Mantenimiento
-Actualizar dependencias
+## 🔧 Mantenimiento
+
+### Actualizar dependencias
+```bash
 # Verificar dependencias desactualizadas
 npm outdated
 
@@ -61,24 +61,31 @@ npm update
 
 # Actualizar Ionic
 npm install @ionic/angular@latest @ionic/cli@latest
+```
 
-Auditoría de seguridad
+### Auditoría de seguridad
+```bash
 # Verificar vulnerabilidades
 npm audit
 
 # Corregir vulnerabilidades automáticamente
 npm audit fix
+```
 
-📊 Diagrama de la Aplicación
-🏠 Primera pestaña - Lista de razas
+## 📊 Diagrama de la Aplicación
 
+### 🏠 Primera pestaña - Lista de razas
 Muestra una lista completa de todas las razas de perros disponibles.
 
-🎲 Segunda pestaña - Razas aleatorias
+![Primera pestaña](image-1.png)
 
+### 🎲 Segunda pestaña - Razas aleatorias  
 Presenta razas de perros de forma aleatoria para descubrir nuevas opciones.
 
-🏗️ Estructura del Proyecto
+![Segunda pestaña](image.png)
+
+## 🏗️ Estructura del Proyecto
+```
 doggy_ionic/
 ├── src/
 │   ├── app/
@@ -90,42 +97,37 @@ doggy_ionic/
 ├── android/
 ├── ios/
 └── capacitor.config.ts
+```
 
-🤝 Contribución
+## 🤝 Contribución
 
 Las contribuciones son bienvenidas. Por favor:
 
-Fork el proyecto
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-Crea una rama para tu feature (git checkout -b feature/AmazingFeature)
-
-Commit tus cambios (git commit -m 'Add some AmazingFeature')
-
-Push a la rama (git push origin feature/AmazingFeature)
-
-Abre un Pull Request
-
-📞 Soporte
+## 📞 Soporte
 
 Para soporte técnico o consultas sobre el proyecto:
 
-📧 Email: victormugo@gmail.com
+**📧 Email**: victormugo@gmail.com
 
-📄 Licencia
+## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-🔄 Changelog
-v1.0.0
+## 🔄 Changelog
 
-✅ Implementación inicial
+### v1.0.0
+- ✅ Implementación inicial
+- ✅ Lista de razas de perros
+- ✅ Funcionalidad de razas aleatorias
+- ✅ Interfaz con Ionic 7
+- ✅ Integración con Angular 19
 
-✅ Lista de razas de perros
-
-✅ Funcionalidad de razas aleatorias
-
-✅ Interfaz con Ionic 7
-
-✅ Integración con Angular 19
+---
 
 ⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!
