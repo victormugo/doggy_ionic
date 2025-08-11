@@ -6,6 +6,8 @@ import { IBreed, IBreedsResponse } from '../../../../core/interfaces/breeds.inte
   providedIn: 'root',
 })
 export class BreedsService {
+
+  public title: string = "Breeds";
   public breeds: any = [];
 
   constructor(private _breedsRequest: BreedsRequestService) {}

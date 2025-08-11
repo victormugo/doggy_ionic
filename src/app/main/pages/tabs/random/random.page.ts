@@ -2,18 +2,20 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { IonHeader } from "@ionic/angular/standalone";
+import { HeaderComponent } from 'src/app/core/components/header/header.component';
+import { RandomService } from './random.service';
 
 @Component({
   selector: 'app-random',
   templateUrl: 'random.page.html',
   styleUrls: ['random.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent],
 })
 export class RandomPage {
-
-  constructor() {}
+  constructor(
+    private _randomService: RandomService
+  ) {}
 
   ionViewCanEnter() {
     console.log('Page 2 ionViewCanEnter');
@@ -41,5 +43,16 @@ export class RandomPage {
 
   ngOnDestroy() {
     console.log('Page 2 ngOnDestroy');
+  }
+
+  public get title() {
+    return this._randomService.title;
+  }
+
+  public onHeaderClick(event: any) {
+    switch (event.action) {
+      case 'settings':
+        break;
+    }
   }
 }
