@@ -7,7 +7,7 @@ Una aplicación móvil para explorar diferentes razas de perros, desarrollada co
 Doggy App es una aplicación que permite visualizar listas de razas de perros y explorar razas aleatorias, desarrollada usando IONIC Capacitor.
 
 ### 🛠️ Tecnologías
-- **Angular**: 19
+- **Angular**: 20
 - **Ionic**: 7.0.0
 - **Node.js**: 18.20.4
 - **Capacitor**: Para funcionalidad nativa
