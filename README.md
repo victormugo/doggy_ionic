@@ -9,20 +9,20 @@ Doggy App es una aplicación que permite visualizar listas de razas de perros y 
 ### 🛠️ Tecnologías
 - **Angular**: 20
 - **Ionic**: 7.0.0
-- **Node.js**: 18.20.4
+- **Node.js**: 22.18.0
 - **Capacitor**: Para funcionalidad nativa
 
 ## 🚀 Setup del Proyecto
 
 ### Prerrequisitos
-- Node.js 18.20.4 o superior
+- Node.js 22.18.0 o superior
 - npm o yarn
 - Ionic CLI
 
 ### Instalación
 ```bash
 # Clonar el repositorio
-git clone <repository-url>
+git clone https://github.com/victormugo/doggy_ionic.git
 cd doggy_ionic
 
 # Instalar dependencias
