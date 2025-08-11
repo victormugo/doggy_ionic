@@ -4,13 +4,32 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('../app/main/pages/tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+    loadComponent: () => import('./main/pages/tabs/tabs.page').then((m) => m.TabsPage),
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'breeds',
+      },
+      {
+        path: 'breeds',
+        loadComponent: () => import('./main/pages/tabs/breeds/breeds.page').then((m) => m.BreedsPage),
+      },
+      {
+        path: 'randon',
+        loadComponent: () => import('./main/pages/tabs/random/random.page').then((m) => m.RandomPage),
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

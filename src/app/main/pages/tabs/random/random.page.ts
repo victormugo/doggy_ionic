@@ -1,12 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { IonHeader } from "@ionic/angular/standalone";
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
-  standalone: false,
+  selector: 'app-random',
+  templateUrl: 'random.page.html',
+  styleUrls: ['random.page.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule]
 })
-export class Tab2Page {
+export class RandomPage {
 
   constructor() {}
 
