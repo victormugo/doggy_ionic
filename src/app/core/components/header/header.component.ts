@@ -14,6 +14,7 @@ export class HeaderComponent {
   @Input() title: string = "";
   @Input() showConfigButton: boolean = false;
   @Input() showCloseButton: boolean = false;
+  @Input() showRefreshButton: boolean = false;
 
   @Output() actionEmitter: EventEmitter<any> = new EventEmitter<any>();
   
@@ -27,6 +28,10 @@ export class HeaderComponent {
 
   public close() {
     this.actionEmitter.emit({ action: 'close'});
+  }
+
+  public refreshRandom() {
+    this.actionEmitter.emit({ action: 'refresh'});
   }
 
 }

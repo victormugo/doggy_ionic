@@ -7,12 +7,9 @@ import { Subject, takeUntil } from 'rxjs';
   providedIn: 'root',
 })
 export class BreedsRequestService {
-
   private destroyed$ = new Subject<void>();
 
-  constructor(
-    private _httpService: HttpService
-  ) {}
+  constructor(private _httpService: HttpService) {}
 
   public destroy() {
     this.destroyed$.next();
@@ -20,28 +17,27 @@ export class BreedsRequestService {
 
   /**
    * Get All Breeds List
-   * @returns 
+   * @returns
    */
   public getAllBreeds() {
     return new Promise<any>(async (resolve, reject) => {
       const url = 'breeds/list/all';
 
-      this._httpService.get(url).pipe(takeUntil(this.destroyed$)).subscribe({
-
-        next: async (response: IBreedsResponse) => {
-
-          if (response.status === 'success') {
-            resolve(response.message);
-          } else {
-            reject(response);
-          }
-
-        },
-        error: (error: any) => {
-          reject(error);
-        }
-
-      });
+      this._httpService
+        .get(url)
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe({
+          next: async (response: IBreedsResponse) => {
+            if (response.status === 'success') {
+              resolve(response.message);
+            } else {
+              reject(response);
+            }
+          },
+          error: (error: any) => {
+            reject(error);
+          },
+        });
     });
   }
 
@@ -49,22 +45,43 @@ export class BreedsRequestService {
     return new Promise<any>(async (resolve, reject) => {
       const url = `breed/${id.toLowerCase()}/images`;
 
-      this._httpService.get(url).pipe(takeUntil(this.destroyed$)).subscribe({
+      this._httpService
+        .get(url)
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe({
+          next: async (response: IBreedsResponse) => {
+            if (response.status === 'success') {
+              resolve(response.message);
+            } else {
+              reject(response);
+            }
+          },
+          error: (error: any) => {
+            reject(error);
+          },
+        });
+    });
+  }
 
-        next: async (response: IBreedsResponse) => {
+  public getRandom() {
+    return new Promise<any>(async (resolve, reject) => {
+      const url = 'breeds/image/random';
 
-          if (response.status === 'success') {
-            resolve(response.message);
-          } else {
-            reject(response);
-          }
-
-        },
-        error: (error: any) => {
-          reject(error);
-        }
-
-      });
+      this._httpService
+        .get(url)
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe({
+          next: async (response: IBreedsResponse) => {
+            if (response.status === 'success') {
+              resolve(response.message);
+            } else {
+              reject(response);
+            }
+          },
+          error: (error: any) => {
+            reject(error);
+          },
+        });
     });
   }
 }

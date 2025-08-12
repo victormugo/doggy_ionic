@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/core/components/header/header.component';
 import { RandomService } from './random.service';
+import { IBreedImage } from 'src/app/core/interfaces/breed.inteface';
 
 @Component({
   selector: 'app-random',
@@ -13,6 +14,7 @@ import { RandomService } from './random.service';
   imports: [IonicModule, CommonModule, FormsModule, HeaderComponent],
 })
 export class RandomPage {
+
   constructor(
     private _randomService: RandomService
   ) {}
@@ -23,6 +25,7 @@ export class RandomPage {
 
   ngOnInit() {
     console.log('Random ngOnInit');
+    this._randomService.getRandom();
   }
 
   ionViewWillEnter() {
@@ -45,13 +48,20 @@ export class RandomPage {
     console.log('Random ngOnDestroy');
   }
 
-  public get title() {
-    return this._randomService.title;
+  public get image() {
+    return this._randomService.image;
+  }
+
+  public get breedRandomName() {
+    return this._randomService.breedRandomName;
   }
 
   public onHeaderClick(event: any) {
+
     switch (event.action) {
-      case 'settings':
+
+      case 'refresh':
+        this._randomService.getRandom();
         break;
     }
   }

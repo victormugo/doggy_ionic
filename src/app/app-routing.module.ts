@@ -16,7 +16,7 @@ const routes: Routes = [
         loadComponent: () => import('./main/pages/tabs/breeds/breeds.page').then((m) => m.BreedsPage),
       },
       {
-        path: 'randon',
+        path: 'random',
         loadComponent: () => import('./main/pages/tabs/random/random.page').then((m) => m.RandomPage),
       },
     ],

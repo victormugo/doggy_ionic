@@ -16,6 +16,14 @@
         </ion-button>
       </ion-buttons>
     }
+
+    @if (showRefreshButton) {
+      <ion-buttons slot="end">
+        <ion-button class="large-clickable-area" (click)="refreshRandom()">
+          <ion-icon name="refresh-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    }
     
     <ion-title>{{title}}</ion-title>
     

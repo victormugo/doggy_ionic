@@ -1,56 +1,55 @@
 <app-header
   [title]="breedSelected"
   [showCloseButton]="true"
-  (actionEmitter)="onHeaderClick($event)"
-></app-header>
+  (actionEmitter)="onHeaderClick($event)">
+</app-header>
 
 <ion-content
   class="ion-padding"
   (ionScroll)="onScroll($event)"
-  [scrollEvents]="true"
->
+  [scrollEvents]="true">
   <!-- Loading inicial -->
   @if (loading && displayedImages.length === 0) {
-  <div class="loading-container">
-    <ion-spinner name="crescent"></ion-spinner>
-    <p>Cargando imágenes de {{ breedSelected }}...</p>
-  </div>
+    <div class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Cargando imágenes de {{ breedSelected }}...</p>
+    </div>
   }
 
   <ion-row>
     <ion-col size="12">
       @for (image of displayedImages || []; track image.image) {
-      <ion-card class="image-card">
-        <ion-card-content>
-          <!-- Skeleton loader mientras carga la imagen -->
-          @if (!image.loaded) {
-          <ion-skeleton-text animated="true" class="image-skeleton">
-          </ion-skeleton-text>
-          }
+        <ion-card class="image-card">
+          <ion-card-content>
+            <!-- Skeleton loader mientras carga la imagen -->
+            @if (!image.loaded) {
+            <ion-skeleton-text animated="true" class="image-skeleton">
+            </ion-skeleton-text>
+            }
 
-          <!-- Imagen con lazy loading -->
-          <ion-img
-            [src]="image.image"
-            [alt]="breedSelected + ' dog image'"
-            (ionImgDidLoad)="onImageLoad(image)"
-            (ionError)="onImageError(image)"
-            [class.loaded]="image.loaded"
-          >
-          </ion-img>
-        </ion-card-content>
-      </ion-card>
+            <!-- Imagen con lazy loading -->
+            <ion-img
+              [src]="image.image"
+              [alt]="breedSelected + ' dog image'"
+              (ionImgDidLoad)="onImageLoad(image)"
+              (ionError)="onImageError(image)"
+              [class.loaded]="image.loaded"
+            >
+            </ion-img>
+          </ion-card-content>
+        </ion-card>
       }
 
       <!-- Botón cargar más -->
       @if (hasMoreImages && displayedImages.length > 0) {
-      <div class="load-more-container">
-        <ion-button
-          expand="block"
-          fill="outline"
-          (click)="loadMore()"
-          [disabled]="loading">
-        </ion-button>
-      </div>
+        <div class="load-more-container">
+          <ion-button
+            expand="block"
+            fill="outline"
+            (click)="loadMore()"
+            [disabled]="loading">
+          </ion-button>
+        </div>
       }
       
     </ion-col>

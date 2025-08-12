@@ -1,5 +1,33 @@
-<app-header [title]="title" (actionEmitter)="onHeaderClick($event)"></app-header>
+<app-header
+  [title]="breedRandomName"
+  [showRefreshButton]="true"
+  (actionEmitter)="onHeaderClick($event)">
+</app-header>
 
-<ion-content >
+<ion-content class="ion-padding">
+
+  <ion-row>
+    <ion-col size="12">
+
+      <ion-card class="image-card">
+        <ion-card-content>
+
+          @if (image) {
+            <ion-img
+              [src]="image"
+              [alt]="breedRandomName + ' dog image'">
+            </ion-img>
+          } @else {
+            <div class="loading-container">
+              <ion-spinner name="crescent"></ion-spinner>
+              <p>Cargando imagen aleatoria...</p>
+            </div>
+          }
+
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
 
 </ion-content>

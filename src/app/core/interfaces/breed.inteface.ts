@@ -1,4 +1,4 @@
 export interface IBreedImage {
   image: string;
-  loaded: boolean;
+  loaded?: boolean;
 }
