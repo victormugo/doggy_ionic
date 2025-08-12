@@ -4,11 +4,13 @@ import { RandomPage } from './pages/tabs/random/random.page';
 import { BreedsService } from './pages/tabs/breeds/breeds.service';
 import { RandomService } from './pages/tabs/random/random.service';
 import { BreedsRequestService } from './services/breeds-request.service';
+import { BreedPage } from './pages/tabs/breeds/breed/breed.page';
 
 @NgModule({
   imports: [
     BreedsPage,
-    RandomPage
+    RandomPage,
+    BreedPage
   ],
   declarations: [],
   providers: [
@@ -18,7 +20,8 @@ import { BreedsRequestService } from './services/breeds-request.service';
   ],
   exports: [
     BreedsPage,
-    RandomPage
+    RandomPage,
+    BreedPage
   ]
 })
 

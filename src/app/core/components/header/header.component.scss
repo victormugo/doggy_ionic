@@ -1,0 +1,11 @@
+.large-clickable-area {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --border-radius: 8px;
+}
+
+.large-clickable-area ion-icon {
+    pointer-events: none;
+}

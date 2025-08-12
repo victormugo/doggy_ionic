@@ -18,9 +18,36 @@ export class BreedsRequestService {
     this.destroyed$.next();
   }
 
+  /**
+   * Get All Breeds List
+   * @returns 
+   */
   public getAllBreeds() {
     return new Promise<any>(async (resolve, reject) => {
       const url = 'breeds/list/all';
+
+      this._httpService.get(url).pipe(takeUntil(this.destroyed$)).subscribe({
+
+        next: async (response: IBreedsResponse) => {
+
+          if (response.status === 'success') {
+            resolve(response.message);
+          } else {
+            reject(response);
+          }
+
+        },
+        error: (error: any) => {
+          reject(error);
+        }
+
+      });
+    });
+  }
+
+  public getBreedById(id: string) {
+    return new Promise<any>(async (resolve, reject) => {
+      const url = `breed/${id.toLowerCase()}/images`;
 
       this._httpService.get(url).pipe(takeUntil(this.destroyed$)).subscribe({
 

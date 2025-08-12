@@ -25,6 +25,10 @@ const routes: Routes = [
     path: '**',
     redirectTo: '',
   },
+  {
+    path: 'breed',
+    loadComponent: () => import('./main/pages/tabs/breeds/breed/breed.page').then( m => m.BreedPage)
+  }
 ];
 @NgModule({
   imports: [

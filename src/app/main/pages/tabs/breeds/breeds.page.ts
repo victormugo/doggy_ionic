@@ -27,32 +27,36 @@ export class BreedsPage implements OnInit, OnDestroy{
   }
 
   ionViewCanEnter() {
-    console.log('Page 1 ionViewCanEnter');
+    console.log('Breeds ionViewCanEnter');
   }
   
   ngOnInit() {
-    console.log('Page 1 ngOnInit');
+    console.log('Breeds ngOnInit');
     this._breedsService.getAllBreeds();
   }
 
   ionViewWillEnter() {
-    console.log('Page 1 ionViewWillEnter');
+    console.log('Breeds ionViewWillEnter');
   }
 
   ionViewDidEnter() {
-    console.log('Page 1 ionViewDidEnter');
+    console.log('Breeds ionViewDidEnter');
   }
 
   ionViewWillLeave() {
-    console.log('Page 1 ionViewWillLeave');
+    console.log('Breeds ionViewWillLeave');
   }
 
   ionViewDidLeave() {
-    console.log('Page 1 ionViewDidLeave');
+    console.log('Breeds ionViewDidLeave');
   }
 
   ngOnDestroy() {
-    console.log('Page 1 ngOnDestroy');
+    console.log('Breeds ngOnDestroy');
+  }
+
+  public openBreed(breedSelected: string) {
+    this._breedsService.openBreed(breedSelected);
   }
 
   public onHeaderClick(event: any) {

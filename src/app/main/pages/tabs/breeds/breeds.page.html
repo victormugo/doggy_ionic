@@ -1,4 +1,4 @@
-<app-header [title]="title" (actionEmitter)="onHeaderClick($event)"></app-header>
+<app-header [title]="title" [showConfigButton]="true" (actionEmitter)="onHeaderClick($event)"></app-header>
 
 <ion-content class="ion-padding">
   <ion-row>
@@ -6,7 +6,7 @@
       @for (breed of breeds || []; track breed.name) {
         <ion-card>
           <ion-card-content>
-            <h2>{{ breed.name }}</h2>
+            <h2 (click)="openBreed(breed.name)">{{ breed.name }}</h2>
             @if (breed.subBreeds && breed.subBreeds.length > 0) {
               <div class="sub-breeds">
                 @for (subBreed of breed.subBreeds; track subBreed) {

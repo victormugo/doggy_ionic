@@ -2,14 +2,18 @@
   <ion-toolbar>
 
     @if (showConfigButton) {
-      <ion-buttons>
-        <ion-icon name="settings-outline" (click)="openSettings()"></ion-icon>
+      <ion-buttons slot="end">
+        <ion-button class="large-clickable-area" (click)="openSettings()">
+          <ion-icon name="settings-outline" size="large"></ion-icon>
+        </ion-button>
       </ion-buttons>
     }
 
     @if (showCloseButton) {
-      <ion-buttons>
-        <ion-icon name="settings-outline" (click)="close()"></ion-icon>
+      <ion-buttons slot="end">
+        <ion-button class="large-clickable-area" (click)="close()">
+          <ion-icon name="close-outline" size="large"></ion-icon>
+        </ion-button>
       </ion-buttons>
     }
     

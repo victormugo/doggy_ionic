@@ -18,31 +18,31 @@ export class RandomPage {
   ) {}
 
   ionViewCanEnter() {
-    console.log('Page 2 ionViewCanEnter');
+    console.log('Random ionViewCanEnter');
   }
 
   ngOnInit() {
-    console.log('Page 2 ngOnInit');
+    console.log('Random ngOnInit');
   }
 
   ionViewWillEnter() {
-    console.log('Page 2 ionViewWillEnter');
+    console.log('Random ionViewWillEnter');
   }
 
   ionViewDidEnter() {
-    console.log('Page 2 ionViewDidEnter');
+    console.log('Random ionViewDidEnter');
   }
 
   ionViewWillLeave() {
-    console.log('Page 2 ionViewWillLeave');
+    console.log('Random ionViewWillLeave');
   }
 
   ionViewDidLeave() {
-    console.log('Page 2 ionViewDidLeave');
+    console.log('Random ionViewDidLeave');
   }
 
   ngOnDestroy() {
-    console.log('Page 2 ngOnDestroy');
+    console.log('Random ngOnDestroy');
   }
 
   public get title() {
