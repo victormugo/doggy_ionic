@@ -28,6 +28,14 @@ const routes: Routes = [
   {
     path: 'breed',
     loadComponent: () => import('./main/pages/tabs/breeds/breed/breed.page').then( m => m.BreedPage)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./core/pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./core/pages/about/about.module').then( m => m.AboutPageModule)
   }
 ];
 @NgModule({
