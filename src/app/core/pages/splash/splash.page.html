@@ -1,0 +1,99 @@
+<ion-content class="splash-content">
+  <div class="splash-container">
+    <!-- Logo principal -->
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <svg width="200" height="200" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" class="main-logo">
+          <defs>
+            <linearGradient id="dogGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#4ECDC4;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#45B7D1;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="earGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FF8E8E;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FF6B6B;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="noseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#34495E;stop-opacity:1" />
+            </linearGradient>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+            </filter>
+          </defs>
+          
+          <!-- Background circle -->
+          <circle cx="128" cy="128" r="120" fill="url(#dogGradient)" filter="url(#shadow)"/>
+          
+          <!-- Dog head -->
+          <ellipse cx="128" cy="140" rx="80" ry="70" fill="url(#dogGradient)" stroke="#fff" stroke-width="3"/>
+          
+          <!-- Left ear -->
+          <ellipse cx="80" cy="90" rx="25" ry="35" fill="url(#earGradient)" transform="rotate(-20 80 90)"/>
+          <ellipse cx="80" cy="90" rx="15" ry="25" fill="#FFB3B3" transform="rotate(-20 80 90)"/>
+          
+          <!-- Right ear -->
+          <ellipse cx="176" cy="90" rx="25" ry="35" fill="url(#earGradient)" transform="rotate(20 176 90)"/>
+          <ellipse cx="176" cy="90" rx="15" ry="25" fill="#FFB3B3" transform="rotate(20 176 90)"/>
+          
+          <!-- Eyes -->
+          <circle cx="110" cy="120" r="8" fill="#2C3E50"/>
+          <circle cx="146" cy="120" r="8" fill="#2C3E50"/>
+          <circle cx="112" cy="118" r="3" fill="#fff"/>
+          <circle cx="148" cy="118" r="3" fill="#fff"/>
+          
+          <!-- Nose -->
+          <ellipse cx="128" cy="145" rx="6" ry="4" fill="url(#noseGradient)"/>
+          
+          <!-- Mouth -->
+          <path d="M 128 150 Q 115 160 105 155" stroke="#2C3E50" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 128 150 Q 141 160 151 155" stroke="#2C3E50" stroke-width="3" fill="none" stroke-linecap="round"/>
+          
+          <!-- Tongue -->
+          <ellipse cx="128" cy="165" rx="8" ry="12" fill="#FF6B6B"/>
+          
+          <!-- Paws -->
+          <circle cx="100" cy="200" r="12" fill="url(#dogGradient)"/>
+          <circle cx="128" cy="210" r="12" fill="url(#dogGradient)"/>
+          <circle cx="156" cy="200" r="12" fill="url(#dogGradient)"/>
+          
+          <!-- Paw details -->
+          <circle cx="100" cy="200" r="6" fill="#fff" opacity="0.3"/>
+          <circle cx="128" cy="210" r="6" fill="#fff" opacity="0.3"/>
+          <circle cx="156" cy="200" r="6" fill="#fff" opacity="0.3"/>
+          
+          <!-- Sparkle effects -->
+          <g opacity="0.8" class="sparkles">
+            <path d="M 50 50 L 55 55 L 50 60 L 45 55 Z" fill="#fff"/>
+            <path d="M 200 60 L 205 65 L 200 70 L 195 65 Z" fill="#fff"/>
+            <path d="M 60 200 L 65 205 L 60 210 L 55 205 Z" fill="#fff"/>
+            <path d="M 190 190 L 195 195 L 190 200 L 185 195 Z" fill="#fff"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Título de la aplicación -->
+    <div class="app-title">
+      <h1>Doggy</h1>
+      <p class="app-subtitle">Explora las razas de perros</p>
+    </div>
+
+    <!-- Progress bar container -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+      <div class="progress-text">{{ loadingText }}</div>
+      <div class="progress-percentage">{{ progress | number:'1.0-0' }}%</div>
+    </div>
+
+    <!-- Loading dots animation -->
+    <div class="loading-dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</ion-content>

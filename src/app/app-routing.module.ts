@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'splash',
+    loadComponent: () => import('./core/pages/splash/splash.page').then((m) => m.SplashPage),
+  },
+  {
     path: '',
     loadComponent: () => import('./main/pages/tabs/tabs.page').then((m) => m.TabsPage),
     children: [
