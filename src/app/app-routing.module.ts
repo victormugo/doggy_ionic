@@ -31,11 +31,11 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-    loadChildren: () => import('./core/pages/settings/settings.module').then( m => m.SettingsPageModule)
+    loadComponent: () => import('./core/pages/settings/settings.page').then( m => m.SettingsPage)
   },
   {
     path: 'about',
-    loadChildren: () => import('./core/pages/about/about.module').then( m => m.AboutPageModule)
+    loadComponent: () => import('./core/pages/about/about.page').then( m => m.AboutPage)
   }
 ];
 @NgModule({
