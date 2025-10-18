@@ -1,0 +1,64 @@
+// Variables de colores globales para Doggy App
+// Basadas en el gradiente del splash screen
+
+:root {
+  // Gradiente principal (del splash)
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  
+  // Colores individuales del gradiente
+  --primary-color: #667eea;
+  --primary-color-dark: #5a6fd8;
+  --secondary-color: #764ba2;
+  --secondary-color-dark: #6a4190;
+  
+  // Colores de acento
+  --accent-color: #667eea;
+  --accent-color-light: #8b9ef0;
+  --accent-color-dark: #4c63d2;
+  
+  // Colores de fondo
+  --background-light: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --background-dark: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+  
+  // Sombras
+  --card-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+  --card-shadow-hover: 0 16px 48px rgba(102, 126, 234, 0.25);
+  --button-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+  
+  // Bordes
+  --border-radius: 16px;
+  --border-radius-small: 8px;
+  --border-radius-large: 24px;
+  
+  // Transiciones
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+  --transition-slow: all 0.5s ease;
+  
+  // Texto
+  --text-primary: #2C3E50;
+  --text-secondary: #7F8C8D;
+  --text-light: #BDC3C7;
+  --text-white: #FFFFFF;
+  
+  // Estados
+  --success-color: #27AE60;
+  --warning-color: #F39C12;
+  --error-color: #E74C3C;
+  --info-color: #3498DB;
+}
+
+// Modo oscuro
+[data-theme="dark"] {
+  --text-primary: #ECF0F1;
+  --text-secondary: #BDC3C7;
+  --text-light: #95A5A6;
+  
+  --background-light: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+  --background-dark: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+  
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --button-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+}
