@@ -19,8 +19,23 @@
 
     @if (showRefreshButton) {
       <ion-buttons slot="end">
-        <ion-button class="large-clickable-area" (click)="refreshRandom()">
-          <ion-icon name="refresh-outline" size="large"></ion-icon>
+        <ion-button 
+          class="large-clickable-area refresh-button" 
+          [class.disabled]="!refreshEnabled"
+          [disabled]="!refreshEnabled"
+          (click)="refreshRandom()">
+          <div class="refresh-button-content">
+            <ion-icon 
+              [name]="refreshEnabled ? 'refresh-outline' : 'time-outline'" 
+              size="large">
+            </ion-icon>
+            @if (!refreshEnabled && refreshCooldownTime) {
+              <div class="cooldown-overlay">
+                <span class="cooldown-time">{{ refreshCooldownTime }}</span>
+                <div class="cooldown-progress" [style.width.%]="refreshCooldownProgress"></div>
+              </div>
+            }
+          </div>
         </ion-button>
       </ion-buttons>
     }

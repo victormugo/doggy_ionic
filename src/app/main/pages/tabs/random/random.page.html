@@ -1,6 +1,9 @@
 <app-header
   [title]="breedRandomName"
   [showRefreshButton]="true"
+  [refreshEnabled]="isRefreshEnabled"
+  [refreshCooldownTime]="remainingTimeFormatted"
+  [refreshCooldownProgress]="cooldownProgress"
   (actionEmitter)="onHeaderClick($event)">
 </app-header>
 

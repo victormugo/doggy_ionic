@@ -1,32 +1,33 @@
-<app-header [title]="title" [showConfigButton]="true" (actionEmitter)="onHeaderClick($event)"></app-header>
+<app-header [title]="title" [showConfigButton]="false" (actionEmitter)="onHeaderClick($event)"></app-header>
 
-<ion-content class="ion-padding">
-  <ion-row>
-    <ion-col size="12">
-      @for (breed of breeds || []; track breed.name) {
-        <ion-card>
-          <ion-card-content>
-            <h2 (click)="openBreed(breed.name)">{{ breed.name }}</h2>
-            @if (breed.subBreeds && breed.subBreeds.length > 0) {
-              <div class="sub-breeds">
-                @for (subBreed of breed.subBreeds; track subBreed) {
-                  <ion-chip color="secondary">
-                    {{ subBreed }}
-                  </ion-chip>
-                }
-              </div>
-            }
-          </ion-card-content>
-        </ion-card>
-      }
-      
-      <!-- Mensaje cuando no hay razas -->
-      @if (breeds.length === 0) {
-        <div class="empty-state">
-          <ion-icon name="paw-outline" size="large"></ion-icon>
-          <p>No se encontraron razas</p>
-        </div>
-      }
-    </ion-col>
-  </ion-row>
+<ion-content>
+  <div class="breeds-container">
+    @for (breed of breeds || []; track breed.name) {
+      <ion-card class="breed-card">
+        <div class="card-background"></div>
+        <ion-card-content>
+          <h2 class="breed-title" (click)="openBreed(breed.name)">
+            {{ breed.name }}
+          </h2>
+          @if (breed.subBreeds && breed.subBreeds.length > 0) {
+            <div class="sub-breeds">
+              @for (subBreed of breed.subBreeds; track subBreed) {
+                <ion-chip class="sub-breed-chip">
+                  {{ subBreed }}
+                </ion-chip>
+              }
+            </div>
+          }
+        </ion-card-content>
+      </ion-card>
+    }
+    
+    <!-- Mensaje cuando no hay razas -->
+    @if (breeds.length === 0) {
+      <div class="empty-state">
+        <ion-icon name="paw-outline" size="large"></ion-icon>
+        <p>No se encontraron razas</p>
+      </div>
+    }
+  </div>
 </ion-content>

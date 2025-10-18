@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/core/components/header/header.component';
 import { RandomService } from './random.service';
 import { IBreedImage } from 'src/app/core/interfaces/breed.inteface';
+import { CooldownService, CooldownState } from 'src/app/core/services/cooldown.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-random',
@@ -13,10 +15,21 @@ import { IBreedImage } from 'src/app/core/interfaces/breed.inteface';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, HeaderComponent],
 })
-export class RandomPage {
+export class RandomPage implements OnInit, OnDestroy {
+  private readonly REFRESH_COOLDOWN_ID = 'random-refresh';
+  private readonly COOLDOWN_DURATION = 10000; // 10 segundos
+  
+  cooldownState: CooldownState = {
+    isActive: false,
+    remainingTime: 0,
+    totalTime: this.COOLDOWN_DURATION
+  };
+  
+  private cooldownSubscription?: Subscription;
 
   constructor(
-    private _randomService: RandomService
+    private _randomService: RandomService,
+    private cooldownService: CooldownService
   ) {}
 
   ionViewCanEnter() {
@@ -26,6 +39,7 @@ export class RandomPage {
   ngOnInit() {
     console.log('Random ngOnInit');
     this._randomService.getRandom();
+    this.initializeCooldown();
   }
 
   ionViewWillEnter() {
@@ -46,6 +60,9 @@ export class RandomPage {
 
   ngOnDestroy() {
     console.log('Random ngOnDestroy');
+    if (this.cooldownSubscription) {
+      this.cooldownSubscription.unsubscribe();
+    }
   }
 
   public get image() {
@@ -57,12 +74,58 @@ export class RandomPage {
   }
 
   public onHeaderClick(event: any) {
-
     switch (event.action) {
-
       case 'refresh':
-        this._randomService.getRandom();
+        this.handleRefresh();
         break;
     }
+  }
+
+  /**
+   * Inicializa el sistema de cooldown
+   */
+  private initializeCooldown(): void {
+    // Suscribirse a cambios del estado de cooldown
+    const cooldownObservable = this.cooldownService.getCooldownState(this.REFRESH_COOLDOWN_ID);
+    if (cooldownObservable) {
+      this.cooldownSubscription = cooldownObservable.subscribe(state => {
+        this.cooldownState = state;
+      });
+    }
+  }
+
+  /**
+   * Maneja el evento de refresh con cooldown
+   */
+  private handleRefresh(): void {
+    if (this.cooldownService.canExecute(this.REFRESH_COOLDOWN_ID)) {
+      console.log('Ejecutando refresh - cooldown iniciado');
+      this._randomService.getRandom();
+      this.cooldownService.startCooldown(this.REFRESH_COOLDOWN_ID, this.COOLDOWN_DURATION);
+    } else {
+      console.log('Refresh bloqueado - cooldown activo');
+      // Opcional: mostrar un toast o mensaje al usuario
+    }
+  }
+
+  /**
+   * Verifica si el botón de refresh está disponible
+   */
+  public get isRefreshEnabled(): boolean {
+    return this.cooldownService.canExecute(this.REFRESH_COOLDOWN_ID);
+  }
+
+  /**
+   * Obtiene el tiempo restante formateado
+   */
+  public get remainingTimeFormatted(): string {
+    return this.cooldownService.formatTime(this.cooldownState.remainingTime);
+  }
+
+  /**
+   * Obtiene el progreso del cooldown (0-100)
+   */
+  public get cooldownProgress(): number {
+    return this.cooldownService.getCooldownProgress(this.REFRESH_COOLDOWN_ID);
   }
 }
