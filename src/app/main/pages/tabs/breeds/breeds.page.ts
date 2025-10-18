@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreedsService } from './breeds.service';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from "src/app/core/components/header/header.component";
@@ -15,7 +15,8 @@ import { HeaderComponent } from "src/app/core/components/header/header.component
 export class BreedsPage implements OnInit, OnDestroy{
 
   constructor(
-    private _breedsService: BreedsService
+    private _breedsService: BreedsService,
+    private navController: NavController
   ) {}
 
   public get title() {
@@ -60,9 +61,11 @@ export class BreedsPage implements OnInit, OnDestroy{
   }
 
   public onHeaderClick(event: any) {
-
+    console.log('onHeaderClick', event.action);
     switch (event.action) {
       case 'settings':
+        console.log('navigate to settings');
+        this.navController.navigateForward('/settings');
         break;
     }
   }

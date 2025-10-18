@@ -9,3 +9,87 @@
 .large-clickable-area ion-icon {
     pointer-events: none;
 }
+
+// Estilos específicos para el botón de refresh
+.refresh-button {
+    position: relative;
+    overflow: hidden;
+    
+    &.disabled {
+        --color: var(--ion-color-medium);
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.refresh-button-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cooldown-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.cooldown-time {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--ion-color-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2px;
+}
+
+.cooldown-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: 0 0 8px 8px;
+  transition: width 0.3s ease;
+}
+
+// Modo oscuro
+[data-theme="dark"] {
+    .cooldown-overlay {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .cooldown-time {
+        color: var(--ion-color-primary);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .refresh-button.disabled {
+        --color: var(--ion-color-step-400);
+    }
+}
+
+// Animación de pulso cuando está en cooldown
+.refresh-button.disabled {
+    animation: cooldownPulse 2s ease-in-out infinite;
+}
+
+@keyframes cooldownPulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}

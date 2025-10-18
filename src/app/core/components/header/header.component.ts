@@ -15,6 +15,9 @@ export class HeaderComponent {
   @Input() showConfigButton: boolean = false;
   @Input() showCloseButton: boolean = false;
   @Input() showRefreshButton: boolean = false;
+  @Input() refreshEnabled: boolean = true;
+  @Input() refreshCooldownTime: string = "";
+  @Input() refreshCooldownProgress: number = 0;
 
   @Output() actionEmitter: EventEmitter<any> = new EventEmitter<any>();
   
@@ -31,7 +34,9 @@ export class HeaderComponent {
   }
 
   public refreshRandom() {
-    this.actionEmitter.emit({ action: 'refresh'});
+    if (this.refreshEnabled) {
+      this.actionEmitter.emit({ action: 'refresh'});
+    }
   }
 
 }

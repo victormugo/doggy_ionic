@@ -1,5 +1,70 @@
-<app-header></app-header>
+<app-header title="Configuración" [showCloseButton]="true" (actionEmitter)="onHeaderAction($event)"></app-header>
 
 <ion-content>
-  
+  <div class="settings-container">
+    
+    <!-- Sección de Apariencia -->
+    <div class="settings-section">
+      <h2 class="section-title">
+        <ion-icon name="color-palette-outline"></ion-icon>
+        Apariencia
+      </h2>
+      
+      <div class="settings-item">
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Tema</h3>
+            <p>{{ getThemeDescription() }}</p>
+          </div>
+          <ion-icon [name]="getThemeIcon()" class="theme-icon"></ion-icon>
+        </div>
+        
+        <div class="theme-options">
+          <ion-segment [(ngModel)]="selectedTheme" (ionChange)="onThemeChange($event)">
+            <ion-segment-button value="light">
+              <ion-icon name="sunny"></ion-icon>
+              <ion-label>Claro</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="dark">
+              <ion-icon name="moon"></ion-icon>
+              <ion-label>Oscuro</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="system">
+              <ion-icon name="phone-portrait"></ion-icon>
+              <ion-label>Sistema</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Información -->
+    <div class="settings-section">
+      <h2 class="section-title">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        Información
+      </h2>
+      
+      <div class="settings-item">
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Versión</h3>
+            <p>Doggy v1.0.0</p>
+          </div>
+          <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
+        </div>
+      </div>
+      
+      <div class="settings-item">
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Desarrollador</h3>
+            <p>Victor Mugo</p>
+          </div>
+          <ion-icon name="person-outline" class="info-icon"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </ion-content>

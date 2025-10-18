@@ -1,13 +1,12 @@
 <svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="dogGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#4ECDC4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#45B7D1;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="earGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF8E8E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#8b9ef0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="noseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
@@ -46,7 +45,7 @@
   <path d="M 128 150 Q 141 160 151 155" stroke="#2C3E50" stroke-width="3" fill="none" stroke-linecap="round"/>
   
   <!-- Tongue -->
-  <ellipse cx="128" cy="165" rx="8" ry="12" fill="#FF6B6B"/>
+  <ellipse cx="128" cy="165" rx="8" ry="12" fill="#667eea"/>
   
   <!-- Paws -->
   <circle cx="100" cy="200" r="12" fill="url(#dogGradient)"/>
