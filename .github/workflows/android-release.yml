@@ -10,6 +10,9 @@ jobs:
   build-aab:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
 
     steps:
       - name: Checkout code
@@ -66,7 +69,7 @@ jobs:
           retention-days: 30
       
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.run_number }}
           name: Release v${{ github.run_number }}
@@ -75,5 +78,3 @@ jobs:
             Commit: ${{ github.sha }}
             PR: #${{ github.event.pull_request.number }}
           files: android/app/build/outputs/bundle/release/app-release.aab
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
